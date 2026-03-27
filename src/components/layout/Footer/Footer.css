@@ -1,0 +1,121 @@
+.footer {
+  background-color: var(--white);
+  padding: var(--spacing-2xl) 0 0 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+.footer-brand {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-logo-img {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-logo span {
+  color: var(--primary);
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  color: var(--text-main);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background-color: var(--white);
+  color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.social-links a:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 112, 41, 0.3);
+}
+
+.footer-links-group {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+.footer-column h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--secondary);
+}
+
+.footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer-column a {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+
+.footer-column a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.875rem;
+  color: var(--text-main);
+  background-color: var(--surface);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  .footer-links-group {
+    justify-content: flex-start;
+    gap: var(--spacing-2xl);
+  }
+}

@@ -1,0 +1,40 @@
+.page-header {
+  height: 40vh;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: var(--white);
+  padding-top: 80px; /* Header height offset */
+}
+
+.page-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.page-subtitle {
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+}

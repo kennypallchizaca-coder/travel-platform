@@ -1,0 +1,27 @@
+.home-page {
+  width: 100%;
+}
+
+.home-page > section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.home-page > section.cta-section {
+  margin-bottom: 0; /* Let it sit flush with the footer */
+}
+
+.home-page > section:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .home-page > section {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page > section {
+    margin-bottom: var(--spacing-lg);
+  }
+}

@@ -1,0 +1,132 @@
+.booking-widget {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Sophisticated prominent shadow */
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  max-width: 1000px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.widget-tabs {
+  display: flex;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.tab {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding-bottom: var(--spacing-sm);
+  position: relative;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  font-family: var(--font-heading);
+}
+
+.tab.active {
+  color: var(--secondary);
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--primary);
+  transition: width var(--transition-fast);
+  border-radius: 4px;
+}
+
+.tab.active::after {
+  width: 40px; /* Just a small bar like in modern designs opposed to full width */
+}
+
+.widget-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  background: var(--white);
+  border-radius: var(--radius-md);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 180px;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.95rem;
+}
+
+.input-icon {
+  color: var(--primary);
+}
+
+.input-group input,
+.input-group select {
+  border: none;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background: transparent;
+  padding: var(--spacing-xs) 0;
+  outline: none;
+  font-family: var(--font-body);
+}
+
+.input-group input::placeholder {
+  color: var(--gray-300);
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--gray-200);
+}
+
+.search-btn {
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 992px) {
+  .widget-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+  .input-group {
+    min-width: 0;
+  }
+  .divider {
+    display: none;
+  }
+  .search-btn {
+    grid-column: span 2;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .widget-form {
+    grid-template-columns: 1fr;
+  }
+  .search-btn {
+    grid-column: span 1;
+  }
+}
