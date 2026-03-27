@@ -3,7 +3,16 @@ import { FiMapPin, FiClock } from 'react-icons/fi';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import './Destinations.css';
 
-const defaultDestinations = [
+interface Destination {
+  id: number;
+  title: string;
+  location: string;
+  price: string;
+  days?: string;
+  img: string;
+}
+
+const defaultDestinations: Destination[] = [
   {
     id: 1,
     title: 'Laguna del Quilotoa',
@@ -30,7 +39,13 @@ const defaultDestinations = [
   }
 ];
 
-const Destinations = ({ data, title, subtitle }) => {
+interface DestinationsProps {
+  data?: Destination[];
+  title?: string;
+  subtitle?: string;
+}
+
+const Destinations: React.FC<DestinationsProps> = ({ data, title, subtitle }) => {
   const destinationsToDisplay = data || defaultDestinations;
   
   return (
@@ -51,7 +66,13 @@ const Destinations = ({ data, title, subtitle }) => {
               className={`dest-card animate-on-scroll is-visible delay-${(index + 1) * 100}`}
             >
               <div className="dest-img-wrapper">
-                <img src={dest.img} alt={dest.title} className="dest-img" />
+                <img 
+                  src={dest.img} 
+                  alt={dest.title} 
+                  className="dest-img" 
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="dest-content">
                 <div className="dest-header">

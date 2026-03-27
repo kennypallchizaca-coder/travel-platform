@@ -1,11 +1,12 @@
 .booking-widget {
   background-color: var(--white);
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Sophisticated prominent shadow */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); 
   padding: var(--spacing-lg) var(--spacing-2xl);
   max-width: 1000px;
-  width: 100%;
-  margin-inline: auto;
+  width: 90%; /* Ensure it doesn't hit edges on mobile */
+  margin: 0 auto;
+  position: relative;
 }
 
 .widget-tabs {

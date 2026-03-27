@@ -3,7 +3,14 @@ import { FiMap, FiWind, FiHome, FiCompass } from 'react-icons/fi';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import './Services.css';
 
-const defaultServices = [
+interface Service {
+  id: number;
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
+
+const defaultServices: Service[] = [
   {
     id: 1,
     icon: <FiMap />,
@@ -30,7 +37,13 @@ const defaultServices = [
   }
 ];
 
-const Services = ({ data, title, subtitle }) => {
+interface ServicesProps {
+  data?: Service[];
+  title?: string;
+  subtitle?: string;
+}
+
+const Services: React.FC<ServicesProps> = ({ data, title, subtitle }) => {
   const servicesToDisplay = data || defaultServices;
   
   return (

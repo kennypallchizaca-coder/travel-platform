@@ -4,19 +4,19 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import logo from '../../../assets/logo.png';
 import './Header.css';
 
-const Header = () => {
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
+  const toggleMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 

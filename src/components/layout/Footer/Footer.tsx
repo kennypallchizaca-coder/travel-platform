@@ -4,7 +4,7 @@ import { FiFacebook, FiTwitter, FiInstagram } from 'react-icons/fi';
 import logo from '../../../assets/logo.png';
 import './Footer.css';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container footer-container">
@@ -18,9 +18,9 @@ const Footer = () => {
             Reserva tu viaje ideal a lo largo del Ecuador y disfruta de la belleza de los Andes, Costa, Amazonía y Galápagos.
           </p>
           <div className="social-links">
-            <a href="#" aria-label="Facebook"><FiFacebook /></a>
-            <a href="#" aria-label="Twitter"><FiTwitter /></a>
-            <a href="#" aria-label="Instagram"><FiInstagram /></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FiFacebook /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FiTwitter /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FiInstagram /></a>
           </div>
         </div>
 

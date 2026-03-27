@@ -4,8 +4,18 @@ import Destinations from '../../components/features/Destinations/Destinations';
 import SectionTitle from '../../components/common/SectionTitle/SectionTitle';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
+import '../../components/features/Services/Services.css';
 
-const regionDestinations = [
+interface RegionDestination {
+  id: number;
+  title: string;
+  location: string;
+  price: string;
+  days: string;
+  img: string;
+}
+
+const regionDestinations: RegionDestination[] = [
   {
     id: 101,
     title: "Islas Galápagos",
@@ -32,7 +42,7 @@ const regionDestinations = [
   }
 ];
 
-const DestinationsPage = () => {
+const DestinationsPage: React.FC = () => {
   useScrollAnimation();
   return (
     <div className="destinations-page">
@@ -46,7 +56,7 @@ const DestinationsPage = () => {
         subtitle="Desde las profundidades del Amazonas hasta las cumbres de los Andes"
         backgroundImage="/images/hero_ecuador.png"
       />
-      <div className="container" style={{ padding: 'var(--spacing-2xl) 0' }}>
+      <div className="container section-padding">
         <Destinations 
           data={regionDestinations} 
           title="Nuestros Destinos Recomendados"

@@ -1,6 +1,14 @@
 import React, { useEffect } from 'react';
 
-const SEO = ({ title, description, keywords, image, url }) => {
+interface SEOProps {
+  title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+}
+
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, image, url }) => {
   useEffect(() => {
     // Update Document Title
     const fullTitle = `${title} | Juanito Travel Ecuador`;
@@ -25,7 +33,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
     metaKeywords.setAttribute('content', keywords || 'Ecuador, turismo, Galápagos, Quito, Amazonía, viajes, Juanito Travel');
 
     // Update OG Tags (Social Media)
-    const updateOGTag = (property, content) => {
+    const updateOGTag = (property: string, content: string) => {
       let tag = document.querySelector(`meta[property="${property}"]`);
       if (!tag) {
         tag = document.createElement('meta');
@@ -36,7 +44,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
     };
 
     updateOGTag('og:title', fullTitle);
-    updateOGTag('og:description', description);
+    updateOGTag('og:description', description || '');
     updateOGTag('og:image', image || '/logo.png');
     updateOGTag('og:url', window.location.href);
     updateOGTag('og:type', 'website');
@@ -65,13 +73,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
         ],
         "opens": "00:00",
         "closes": "23:59"
@@ -89,14 +91,14 @@ const SEO = ({ title, description, keywords, image, url }) => {
       scriptTag.setAttribute('id', 'json-ld-sd');
       document.head.appendChild(scriptTag);
     }
-    scriptTag.text = JSON.stringify(structuredData);
+    scriptTag.innerHTML = JSON.stringify(structuredData);
 
     return () => {
-      // Cleanup (Optional: revert title etc if needed when component unmounts)
+      // Cleanup
     };
   }, [title, description, keywords, image, url]);
 
-  return null; // This component doesn't render anything
+  return null;
 };
 
 export default SEO;

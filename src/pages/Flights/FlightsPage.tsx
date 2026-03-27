@@ -5,7 +5,15 @@ import SectionTitle from '../../components/common/SectionTitle/SectionTitle';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
 
-const flightRoutes = [
+interface FlightRoute {
+  id: number;
+  route: string;
+  duration: string;
+  airline: string;
+  price: string;
+}
+
+const flightRoutes: FlightRoute[] = [
   {
     id: 1,
     route: 'Quito - Galápagos (Baltra)',
@@ -29,7 +37,7 @@ const flightRoutes = [
   }
 ];
 
-const FlightsPage = () => {
+const FlightsPage: React.FC = () => {
   useScrollAnimation();
   return (
     <div className="flights-page">
@@ -47,7 +55,7 @@ const FlightsPage = () => {
         <SectionTitle 
           subtitle="Rutas Populares" 
           title="Vuelos Internos Destacados" 
-          center={true}
+          alignment="center"
         />
         
         <div className="dest-grid" style={{ margin: 'var(--spacing-xl) 0' }}>
@@ -70,7 +78,7 @@ const FlightsPage = () => {
           <SectionTitle 
             subtitle="Buscador" 
             title="Reserva tu Próximo Vuelo" 
-            center={true}
+            alignment="center"
           />
           <div style={{ marginTop: 'var(--spacing-xl)' }}>
             <BookingWidget />

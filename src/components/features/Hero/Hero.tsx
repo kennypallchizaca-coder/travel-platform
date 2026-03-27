@@ -3,7 +3,7 @@ import BookingWidget from '../BookingWidget/BookingWidget';
 import Button from '../../common/Button/Button';
 import './Hero.css';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section className="hero">
       <div className="container hero-container">

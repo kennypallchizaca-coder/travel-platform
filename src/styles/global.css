@@ -102,3 +102,22 @@ img {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Global Section Spacing */
+.section-padding {
+  padding: var(--spacing-2xl) 0;
+}
+
+.bg-light {
+  background-color: #FAFAFA;
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: var(--spacing-xl) 0;
+  }
+}

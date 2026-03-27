@@ -5,8 +5,13 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
 import './Auth.css';
 
-const Login = () => {
+const Login: React.FC = () => {
   useScrollAnimation();
+
+  const handleSubmit = (e: React.FormEvent): void => {
+    e.preventDefault();
+  };
+
   return (
     <div className="auth-page">
       <SEO 
@@ -18,20 +23,20 @@ const Login = () => {
         <h2 className="auth-title">Bienvenido a JuanitoTravel</h2>
         <p className="auth-subtitle">Ingresa para gestionar tus próximas aventuras por el Ecuador</p>
         
-        <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-input-group">
-            <label>Correo Electrónico</label>
-            <input type="email" placeholder="tu@correo.com" />
+            <label htmlFor="login-email">Correo Electrónico</label>
+            <input id="login-email" type="email" placeholder="tu@correo.com" required />
           </div>
           <div className="auth-input-group">
-            <label>Contraseña</label>
-            <input type="password" placeholder="********" />
+            <label htmlFor="login-password">Contraseña</label>
+            <input id="login-password" type="password" placeholder="********" required />
           </div>
           <div className="auth-options">
             <label className="remember-me">
-              <input type="checkbox" /> Recordarme
+              <input type="checkbox" id="remember-me" /> Recordarme
             </label>
-            <Link to="#" className="forgot-password">¿Olvidaste tu contraseña?</Link>
+            <Link to="/forgot-password" title="Forgot Password" className="forgot-password">¿Olvidaste tu contraseña?</Link>
           </div>
           <Button variant="primary" type="submit" size="lg" className="auth-submit">Iniciar Sesión</Button>
         </form>

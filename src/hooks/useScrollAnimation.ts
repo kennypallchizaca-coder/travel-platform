@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-export const useScrollAnimation = () => {
+export const useScrollAnimation = (): void => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          (entry.target as HTMLElement).classList.add('is-visible');
         }
       });
     }, {

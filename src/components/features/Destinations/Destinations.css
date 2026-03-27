@@ -1,5 +1,4 @@
 .destinations {
-  padding: 0;
   background-color: var(--white);
 }
 
@@ -8,6 +7,7 @@
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
+  justify-content: center;
 }
 
 .dest-card {

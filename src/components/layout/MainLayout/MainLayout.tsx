@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './MainLayout.css';
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
     <div className="main-layout">
       <Header />

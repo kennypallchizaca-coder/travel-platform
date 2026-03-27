@@ -5,12 +5,20 @@ import Destinations from '../../components/features/Destinations/Destinations';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
 
-const regionalDishes = [
+interface Dish {
+  id: number;
+  region: string;
+  dish: string;
+  img: string;
+  desc: string;
+}
+
+const regionalDishes: Dish[] = [
   {
     id: 1,
     region: 'Sierra',
     dish: 'Locro de Papa',
-    img: '/images/andes.png', // Placeholder since quota is out
+    img: '/images/andes.png',
     desc: 'Sopa cremosa de papas con queso y aguacate, un clásico reconfortante de los Andes.'
   },
   {
@@ -24,7 +32,7 @@ const regionalDishes = [
     id: 3,
     region: 'Amazonía',
     dish: 'Maito de Pescado',
-    img: '/images/banos.png', // Using Banos as it looks tropical/green
+    img: '/images/banos.png',
     desc: 'Pescado envuelto en hojas de bijao y cocinado a las brasas, una técnica ancestral.'
   }
 ];
@@ -56,8 +64,7 @@ const featuredRestaurants = [
   }
 ];
 
-
-const RestaurantsPage = () => {
+const RestaurantsPage: React.FC = () => {
   useScrollAnimation();
   return (
     <div className="restaurants-page">
@@ -71,18 +78,25 @@ const RestaurantsPage = () => {
         subtitle="Un viaje culinario por las cuatro regiones del país"
         backgroundImage="/images/restaurants.png"
       />
-      <div className="container" style={{ padding: 'var(--spacing-2xl) 0' }}>
+      <div className="container section-padding">
         <SectionTitle 
           subtitle="Experiencia Gastronómica" 
           title="Platos que no puedes dejar de probar" 
-          center={true}
+          alignment="center"
+          nowrap={true}
         />
         
         <div className="dest-grid" style={{ margin: 'var(--spacing-xl) 0' }}>
           {regionalDishes.map((item, index) => (
             <div key={item.id} className={`dest-card animate-on-scroll delay-${(index + 1) * 100}`}>
               <div className="dest-img-wrapper" style={{ height: '200px' }}>
-                <img src={item.img} alt={item.dish} className="dest-img" />
+                <img 
+                  src={item.img} 
+                  alt={item.dish} 
+                  className="dest-img" 
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="dest-content">
                 <span style={{ color: 'var(--primary)', fontWeight: 'bold', fontSize: '0.8rem' }}>{item.region}</span>

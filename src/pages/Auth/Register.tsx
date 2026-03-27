@@ -5,8 +5,13 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
 import './Auth.css';
 
-const Register = () => {
+const Register: React.FC = () => {
   useScrollAnimation();
+
+  const handleSubmit = (e: React.FormEvent): void => {
+    e.preventDefault();
+  };
+
   return (
     <div className="auth-page">
       <SEO 
@@ -18,18 +23,18 @@ const Register = () => {
         <h2 className="auth-title">Únete a la Aventura</h2>
         <p className="auth-subtitle">Crea tu cuenta en JuanitoTravel y planifica tu viaje ideal por Ecuador</p>
         
-        <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
+        <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-input-group">
-            <label>Nombre Completo</label>
-            <input type="text" placeholder="Juan Pérez" />
+            <label htmlFor="reg-name">Nombre Completo</label>
+            <input id="reg-name" type="text" placeholder="Juan Pérez" required />
           </div>
           <div className="auth-input-group">
-            <label>Correo Electrónico</label>
-            <input type="email" placeholder="tu@correo.com" />
+            <label htmlFor="reg-email">Correo Electrónico</label>
+            <input id="reg-email" type="email" placeholder="tu@correo.com" required />
           </div>
           <div className="auth-input-group">
-            <label>Contraseña</label>
-            <input type="password" placeholder="********" />
+            <label htmlFor="reg-password">Contraseña</label>
+            <input id="reg-password" type="password" placeholder="********" required />
           </div>
           <p className="terms">Al registrarte, aceptas nuestros términos y condiciones.</p>
           <Button variant="primary" type="submit" size="lg" className="auth-submit">Crear Cuenta</Button>

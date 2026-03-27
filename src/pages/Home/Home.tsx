@@ -6,7 +6,7 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
 import './Home.css';
 
-const Home = () => {
+const Home: React.FC = () => {
   useScrollAnimation();
 
   return (
@@ -33,4 +33,3 @@ const Home = () => {
 };
 
 export default Home;
-

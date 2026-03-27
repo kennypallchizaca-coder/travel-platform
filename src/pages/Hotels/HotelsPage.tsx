@@ -5,7 +5,16 @@ import SectionTitle from '../../components/common/SectionTitle/SectionTitle';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SEO from '../../components/common/SEO/SEO';
 
-const hotelsData = [
+interface Hotel {
+  id: number;
+  name: string;
+  location: string;
+  type: string;
+  img: string;
+  desc: string;
+}
+
+const hotelsData: Hotel[] = [
   {
     id: 1,
     name: 'Hacienda Zuleta',
@@ -32,7 +41,7 @@ const hotelsData = [
   }
 ];
 
-const HotelsPage = () => {
+const HotelsPage: React.FC = () => {
   useScrollAnimation();
   return (
     <div className="hotels-page">
@@ -50,14 +59,20 @@ const HotelsPage = () => {
         <SectionTitle 
           subtitle="Mejor Selección" 
           title="Nuestras Recomendaciones Exclusivas" 
-          center={true}
+          alignment="center"
         />
         
         <div className="dest-grid" style={{ margin: 'var(--spacing-xl) 0' }}>
           {hotelsData.map((hotel) => (
             <div key={hotel.id} className="dest-card">
               <div className="dest-img-wrapper">
-                <img src={hotel.img} alt={hotel.name} className="dest-img" />
+                <img 
+                  src={hotel.img} 
+                  alt={hotel.name} 
+                  className="dest-img" 
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="dest-content">
                 <div className="dest-header">
@@ -65,7 +80,7 @@ const HotelsPage = () => {
                   <span className="dest-tag" style={{ 
                     fontSize: '0.75rem', 
                     padding: '2px 8px', 
-                    backgroundColor: 'var(--primary-light)', 
+                    backgroundColor: 'rgba(255, 112, 41, 0.1)', 
                     color: 'var(--primary)', 
                     borderRadius: '4px' 
                   }}>{hotel.type}</span>
@@ -83,7 +98,7 @@ const HotelsPage = () => {
           <SectionTitle 
               subtitle="Buscador" 
               title="¿Ya tienes un destino en mente?" 
-              center={true}
+              alignment="center"
           />
           <div style={{ marginTop: 'var(--spacing-xl)' }}>
             <BookingWidget />

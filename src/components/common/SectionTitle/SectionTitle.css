@@ -1,6 +1,11 @@
 .section-title {
-  margin-bottom: var(--spacing-md);
-  max-width: 600px;
+  margin-bottom: var(--spacing-xl);
+  max-width: 900px; /* Increased for longer titles in a single line */
+  width: 100%;
+}
+
+.title-nowrap .title {
+  white-space: nowrap;
 }
 
 .title-center {

@@ -153,7 +153,9 @@
 .widget-container {
   display: flex;
   justify-content: center;
-  margin-top: 0px; /* Completely removed negative overlap as requested */
+  align-items: center;
+  width: 100%;
+  margin-top: 0px; 
   position: relative;
   z-index: 10;
   padding: 0 var(--spacing-md);
