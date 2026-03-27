@@ -43,20 +43,44 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, image, url }) =
       tag.setAttribute('content', content);
     };
 
+    // Base URL for production
+    const baseUrl = 'https://travel-platform-six.vercel.app';
+    const currentUrl = `${baseUrl}${window.location.pathname}`;
+    const ogImage = image ? (image.startsWith('http') ? image : `${baseUrl}${image}`) : `${baseUrl}/logo.png`;
+
     updateOGTag('og:title', fullTitle);
-    updateOGTag('og:description', description || '');
-    updateOGTag('og:image', image || '/logo.png');
-    updateOGTag('og:url', window.location.href);
+    updateOGTag('og:description', description || 'Descubre lo mejor de Ecuador con Juanito Travel.');
+    updateOGTag('og:image', ogImage);
+    updateOGTag('og:image:width', '1200');
+    updateOGTag('og:image:height', '630');
+    updateOGTag('og:site_name', 'Juanito Travel Ecuador');
+    updateOGTag('og:url', currentUrl);
     updateOGTag('og:type', 'website');
+
+    // Update Twitter Tags
+    const updateTwitterTag = (name: string, content: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    updateTwitterTag('twitter:card', 'summary_large_image');
+    updateTwitterTag('twitter:title', fullTitle);
+    updateTwitterTag('twitter:description', description || 'Descubre lo mejor de Ecuador con Juanito Travel.');
+    updateTwitterTag('twitter:image', ogImage);
 
     // Structured Data (JSON-LD)
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "TravelAgency",
       "name": "Juanito Travel",
-      "image": "https://juanitotravel.com/logo.png",
-      "@id": "",
-      "url": "https://juanitotravel.com",
+      "image": `${baseUrl}/logo.png`,
+      "@id": baseUrl,
+      "url": baseUrl,
       "telephone": "+593900000000",
       "address": {
         "@type": "PostalAddress",
